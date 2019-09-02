@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> List </title>
+</head>
+<body>
+	
+
+	{% for result in response.results %}
+		<h1> {{result.name}} </h1>
+		<form action = "{% url 'detail' %}">
+			<input type = "hidden" value = "{{result.url}}" name = 'detail'>
+			<button type = "submit"> Read more! </button>
+		</form>
+	{% endfor %}
+	
+	{% if response.next %}
+	<form action = "{% url 'list' %}">
+			<input type = "hidden" value = "{{response.next}}" name = 'nextPage'>
+			<button type = "submit"> Next Page </button>
+	</form>
+	{% endif %}
+	{% if response.previous %}
+	<form action = "{% url 'list' %}">
+			<input type = "hidden" value = "{{response.previous}}" name = 'prevPage'>
+			<button type = "submit"> Previous Page </button>
+	</form>
+	{% endif %}
+
+</body>
+</html>

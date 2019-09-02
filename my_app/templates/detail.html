@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Detail</title>
+</head>
+<body>
+	
+	<h1> Abilities </h1>
+
+	<ul>
+		{% for ability in results.abilities  %}
+			<li> <h3> name: {{ability.ability.name}} </h3> </li>
+		{% endfor %}
+	</ul>
+
+	<h1> Types </h1>
+
+	<ul>
+		{% for type in results.types  %}
+			<li> <h3> name: {{type.type.name}} </h3> </li>
+		{% endfor %}
+	</ul>
+
+</body>
+</html>
